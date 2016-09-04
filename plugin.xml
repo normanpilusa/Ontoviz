@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+    <extension id="OntovizView"
+              point="org.protege.editor.core.application.ViewComponent">
+      <label value="OntoViz"/>
+      <class value="org.protege.ontoviz.OntovizView"/>
+      <headerColor value="@org.protege.classcolor"/>
+      <category value="@org.protege.classcategory"/>
+   </extension>
+
+   <extension id="OntovizImportView"
+              point="org.protege.editor.core.application.ViewComponent">
+      <label value="Ontoviz Import View"/>
+      <class value="org.protege.ontoviz.OntovizImportView"/>
+      <headerColor value="@org.protege.classcolor"/>
+      <category value="@org.protege.ontologycategory"/>
+   </extension>
+
+   <extension id="OntovizTab"
+              point="org.protege.editor.core.application.WorkspaceTab">
+      <label value="Ontoviz"/>
+      <class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
+      <index value="X"/>
+      <editorKitId value="OWLEditorKit"/>
+      <defaultViewConfigFileName value="viewconfig-ontoviz.xml"/>
+   </extension>
+</plugin>
