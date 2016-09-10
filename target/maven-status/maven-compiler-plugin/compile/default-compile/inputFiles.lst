@@ -1,3 +1,4 @@
+C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\ca\uvic\cs\chisel\cajun\graph\AbstractGraph.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\actions\OpenGraphAction.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\common\ProtegeGraphModel.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\common\GraphController.java
@@ -7,10 +8,15 @@ C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\Ontovi
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\common\util\NodeOWLClassTooltipType.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\common\util\OWLIconProviderImpl.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\OntovizImportView.java
+C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\ca\uvic\cs\chisel\cajun\actions\FocusOnHomeAction.java
+C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\ca\uvic\cs\chisel\cajun\actions\LayoutAction.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\ui\FrameTooltipNode.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\actions\ExportAsDotAction.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\ui\TooltipConfigurationDialog.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\common\ProtegeInputEventHandler.java
+C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\ca\uvic\cs\chisel\cajun\graph\ui\DefaultFlatGraphView.java
+C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\ca\uvic\cs\chisel\cajun\graph\DefaultGraphModel.java
+C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\ca\uvic\cs\chisel\cajun\graph\FlatGraph.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\actions\ConfigTooltipsAction.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\actions\SaveGraphAction.java
 C:\Users\Norman_P\workspaceMars\ontoviz\src\main\java\org\protege\ontoviz\common\util\IconConstants.java
