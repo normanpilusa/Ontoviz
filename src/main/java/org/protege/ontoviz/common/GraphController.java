@@ -181,7 +181,7 @@ public class GraphController {
 	 * @param searchString The entered string to search on
 	 * @param searchMode The search type mode that determines how to match the searchString
 	 */
-	public int search(String searchString, String searchMode) {
+/*	public int search(String searchString, String searchMode) {
 		searchString = prepareSearchString(searchString, searchMode);
 		
 		for(GraphNode node : model.getAllNodes()) node.setSelected(false);
@@ -202,7 +202,7 @@ public class GraphController {
 		//model.recalculateArcTypes();
 
 		return searchResults.size();
-	}
+	}*/
 	
 	/**
 	 * Shows the class as a node and any arcs that exist between this new node and the
@@ -263,7 +263,7 @@ public class GraphController {
 	/**
 	 * Adds appropriate query parameters to the searchString based on the selected searchMode.
 	 */
-	private String prepareSearchString(String searchString, String searchMode) {
+/*	private String prepareSearchString(String searchString, String searchMode) {
 		if (searchMode.equals(CONTAINS)) {
 			return searchString;
 		} else if (searchMode.equals(STARTS_WITH)) {
@@ -275,7 +275,7 @@ public class GraphController {
 		}
 
 		return searchString;
-	}
+	}*/
 
 	private void initialize(Container parentContainer) {
 		// setup the layouts

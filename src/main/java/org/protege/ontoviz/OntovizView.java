@@ -59,15 +59,15 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 	private GraphController graphController;
 
 	// search related UI controls
-	private JComboBox searchTypeBox;
+/*	private JComboBox searchTypeBox;
 	private JTextField searchField;
-	private JLabel searchResults;
+	private JLabel searchResults;*/
 	
 	// flag for cancelling updateView call, this is for managing synchronization between
 	// the graph and the class tree
 	private boolean cancelSelectionUpdate;
 	
-	private JPanel getSearchPanel() {
+	/*private JPanel getSearchPanel() {
 		JPanel searchPanel = new GradientPanel(GradientPanel.BG_START, BACKGROUND_COLOR.darker(), GradientPainter.TOP_TO_BOTTOM);
 
 		JLabel searchLabel = new JLabel("Search:");
@@ -102,8 +102,8 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 					performSearch();
 				}
 			}
-		});
-
+		});*/
+/*
 		JButton clearButton = new JButton("Clear");
 		clearButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -129,8 +129,8 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 		
 		return searchPanel;
 	}
-
-	private void performSearch() {
+*/
+/*	private void performSearch() {
 		if (searchField.getText().length() > 0) {
 			this.setCursor(new Cursor(Cursor.WAIT_CURSOR));
 			int numOfResults = graphController.search(searchField.getText(), getSearchMode());
@@ -141,7 +141,7 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 		} else {
 			JOptionPane.showMessageDialog(this, "You must enter a valid search term", "Invalid search term", JOptionPane.INFORMATION_MESSAGE);
 		}
-	}
+	}*/
 	
 	/**
 	 * When a node gets selected in the graph, we want to update the global class selection for Protege.
@@ -154,10 +154,10 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 		}
 	}
 
-	private String getSearchMode() {
+/*	private String getSearchMode() {
 		return MODES[searchTypeBox.getSelectedIndex()];
 	}
-
+*/
 	@Override
 	public void initialiseClassView() throws Exception {
 		setLayout(new BorderLayout());
@@ -179,7 +179,7 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 			}
 		});
 		
-		add(getSearchPanel(), BorderLayout.NORTH);
+//		add(getSearchPanel(), BorderLayout.NORTH);
 		
 		initToolbar();
 
@@ -192,7 +192,7 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 	}
 	
 	private void initToolbar() {
-		JToolBar toolBar = graphController.getToolBar();
+		/*JToolBar toolBar = graphController.getToolBar();
 		
 		JFrame mainWindow = (javax.swing.JFrame)SwingUtilities.windowForComponent(this);
 		
@@ -210,7 +210,7 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 		btn.setText(null);
 		btn.setToolTipText((String) action.getValue(Action.NAME));
 		
-		toolBar.add(btn);
+		toolBar.add(btn);*/
 	}
 	
 	@Override
