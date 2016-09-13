@@ -44,12 +44,12 @@ import ca.uvic.cs.chisel.cajun.util.GradientPanel;
 
 /**
  * Plugin extension point for the ontoviz view.
- * 
+ *
  * @author seanf
  */
 public class OntovizView extends AbstractOWLClassViewComponent  {
 	private static final long serialVersionUID = -6969495880634875570L;
-	
+
 	private static final Color BACKGROUND_COLOR = new Color(0, 46, 123);
 
 	// search modes available
@@ -62,11 +62,11 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 	private JComboBox searchTypeBox;
 	private JTextField searchField;
 	private JLabel searchResults;
-	
+
 	// flag for cancelling updateView call, this is for managing synchronization between
 	// the graph and the class tree
 	private boolean cancelSelectionUpdate;
-	
+
 	private JPanel getSearchPanel() {
 		JPanel searchPanel = new GradientPanel(GradientPanel.BG_START, BACKGROUND_COLOR.darker(), GradientPainter.TOP_TO_BOTTOM);
 
@@ -126,7 +126,7 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 		searchPanel.add(searchButton);
 		searchPanel.add(clearButton);
 		searchPanel.add(searchResults);
-		
+
 		return searchPanel;
 	}
 
@@ -136,13 +136,13 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 			int numOfResults = graphController.search(searchField.getText(), getSearchMode());
 			searchResults.setText(numOfResults + " result(s) found.");
 			this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-			
+
 			syncNodeSelection();
 		} else {
 			JOptionPane.showMessageDialog(this, "You must enter a valid search term", "Invalid search term", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
-	
+
 	/**
 	 * When a node gets selected in the graph, we want to update the global class selection for Protege.
 	 */
@@ -161,41 +161,42 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 	@Override
 	public void initialiseClassView() throws Exception {
 		setLayout(new BorderLayout());
-		
+
 		this.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentResized(ComponentEvent e) {
 				// TODO Auto-generated method stub
 				super.componentResized(e);
-				
+
 			}
 		});
-		
+
 		graphController = new GraphController(this, this.getOWLEditorKit());
-		
+
 		graphController.getGraph().addNodeSelectionListener(new GraphNodeCollectionListener() {
 			public void collectionChanged(GraphNodeCollectionEvent arg0) {
 				syncNodeSelection();
 			}
 		});
-		
-		add(getSearchPanel(), BorderLayout.NORTH);
-		
+
+		//add(getSearchPanel(), BorderLayout.NORTH);
+		add(TopPanel.getTopPanel(), BorderLayout.NORTH);
+
 		initToolbar();
 
 		Dimension d = new Dimension(800, 600);
 		setPreferredSize(d);
 		setSize(d);
 		setLocation(100, 50);
-		
+
 		setVisible(true);
 	}
-	
+
 	private void initToolbar() {
 		JToolBar toolBar = graphController.getToolBar();
-		
+
 		JFrame mainWindow = (javax.swing.JFrame)SwingUtilities.windowForComponent(this);
-		
+
 		toolBar.addSeparator();
 		toolBar.add(new ExportImageAction(mainWindow, graphController.getGraph().getCanvas()));
 		toolBar.add(new ConfigTooltipsAction(mainWindow, graphController.getGraph().getCanvas()));
@@ -204,30 +205,29 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 		toolBar.add(new OpenGraphAction(mainWindow, graphController));
 		toolBar.addSeparator();
 		toolBar.add(new ExportAsDotAction(mainWindow, graphController));
-		
+
 		Action action = new PinTooltipsAction(mainWindow, graphController);
 		JToggleButton btn = new JToggleButton(action);
 		btn.setText(null);
 		btn.setToolTipText((String) action.getValue(Action.NAME));
-		
+
 		toolBar.add(btn);
 	}
-	
+
 	@Override
 	protected OWLClass updateView(OWLClass owlClass) {
 		if(owlClass != null && !cancelSelectionUpdate) {
 			graphController.showOWLClass(owlClass);
 		}
-		
+
 		cancelSelectionUpdate = false;
-		
+
 		return null;
 	}
 
 	@Override
 	public void disposeView() {
 		// TODO Auto-generated method stub
-		
 	}
 
 }
