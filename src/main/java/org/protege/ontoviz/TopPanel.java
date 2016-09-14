@@ -2,60 +2,33 @@ package org.protege.ontoviz;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class TopPanel extends JPanel{
+public class TopPanel extends JToolBar{
 
-   private static TopPanel instance = new TopPanel();
-
-   private TopPanel(){
-      zoomInLabel = new JLabel();
-      zoomOutLabel = new JLabel();
-      scrShotLabel = new JLabel();
-      saveLabel = new JLabel();
-      openLabel = new JLabel();
+   private TopPanel(AbstractOWLClassViewComponent comp, GraphController controller){
+      super();
+      FlatGraph graph = (FlatGraph) controller.getGraph();
 
       setBackground(OntoVizColors.PRIMARY_LIGHTER);
       setBorder(BorderFactory.createLineBorder(OntoVizColors.BLACK));
 
-      OntoVizConstants.setUpLabel(openLabel, OntoVizIcons.ICON_OPEN, "Open");
-      OntoVizConstants.setUpLabel(saveLabel, OntoVizIcons.ICON_SAVE, "Save");
-      OntoVizConstants.setUpLabel(scrShotLabel, OntoVizIcons.ICON_SCR_SHOT, "Screenshot");
-      OntoVizConstants.setUpLabel(zoomOutLabel, OntoVizIcons.ICON_ZOOM_OUT, "Zoom Out");
-      OntoVizConstants.setUpLabel(zoomInLabel, OntoVizIcons.ICON_ZOOM_IN, "Zoom In");
+      JFrame mainWindow = (javax.swing.JFrame)SwingUtilities.windowForComponent(comp);
 
-      openLabel.addMouseListener(
-         new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-               GUIActions.labelAction("Open");
-            }
-         });
+      zoomInButton = this.add(new ZoomInAction(graph.getCamera()));
+      addSeparator();
+      zoomOutButton= this.add(new ZoomOutAction(graph.getCamera()));
+      addSeparator();
+      saveButton = this.add(new SaveGraphAction(mainWindow, controller));
+      addSeparator();
+      scrShotButton = this.add(new ExportImageAction(mainWindow, controller.getGraph().getCanvas()));
+      addSeparator();
+      openButton = this.add(new OpenGraphAction(mainWindow, controller));
 
-      saveLabel.addMouseListener(
-         new java.awt.event.MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-               GUIActions.labelAction("Save");
-            }
-         });
+      OntoVizConstants.setUpButton(openButton, OntoVizIcons.ICON_OPEN, "Open");
+      OntoVizConstants.setUpButton(saveButton, OntoVizIcons.ICON_SAVE, "Save");
+      OntoVizConstants.setUpButton(scrShotButton, OntoVizIcons.ICON_SCR_SHOT, "Screenshot");
+      OntoVizConstants.setUpButton(zoomOutButton, OntoVizIcons.ICON_ZOOM_OUT, "Zoom Out");
+      OntoVizConstants.setUpButton(zoomInButton, OntoVizIcons.ICON_ZOOM_IN, "Zoom In");
 
-      scrShotLabel.addMouseListener(
-         new java.awt.event.MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-               GUIActions.labelAction("Screenshot");
-            }
-         });
-
-      zoomOutLabel.addMouseListener(
-         new java.awt.event.MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-               GUIActions.labelAction("Zoom Out");
-            }
-         });
-
-      zoomInLabel.addMouseListener(
-         new java.awt.event.MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-               GUIActions.labelAction("Zoom In");
-            }
-         });
 
       GroupLayout topPanelLayout = new GroupLayout(this);
       setLayout(topPanelLayout);
@@ -63,29 +36,31 @@ public class TopPanel extends JPanel{
          topPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
          .addGroup(topPanelLayout.createSequentialGroup()
              .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-             .addComponent(zoomInLabel)
+             .addComponent(zoomInButton)
              .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-             .addComponent(zoomOutLabel, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+             .addComponent(zoomOutButton, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
              .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-             .addComponent(scrShotLabel)
-             .addGap(18, 18, 18).addComponent(saveLabel)
-             .addGap(18, 18, 18).addComponent(openLabel))
+             .addComponent(scrShotButton)
+             .addGap(18, 18, 18).addComponent(saveButton)
+             .addGap(18, 18, 18).addComponent(openButton))
          );
       topPanelLayout.setVerticalGroup(
          topPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-         .addComponent(zoomInLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+         .addComponent(zoomInButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
          .addGroup(GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
              .addGap(0, 0, Short.MAX_VALUE)
              .addGroup(topPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                 .addComponent(openLabel, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-                 .addComponent(saveLabel, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-                 .addComponent(scrShotLabel, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
+                 .addComponent(openButton, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+                 .addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+                 .addComponent(scrShotButton, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
              .addGap(2, 2, 2))
-         .addComponent(zoomOutLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+         .addComponent(zoomOutButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
          );
    }
 
-   public static TopPanel getTopPanel(){ return instance; }
+   public static TopPanel getTopPanel(AbstractOWLClassViewComponent comp, GraphController controller){
+     return new TopPanel(comp, controller);
+   }
 
-   private JLabel zoomOutLabel, zoomInLabel, scrShotLabel, saveLabel, openLabel;
+   private JButton zoomOutButton, zoomInButton, scrShotButton, saveButton, openButton;
 }

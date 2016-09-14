@@ -10,6 +10,7 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLEntity;
 
 import ca.uvic.cs.chisel.cajun.graph.AbstractGraph;
+import ca.uvic.cs.chisel.cajun.graph.FlatGraph;
 import ca.uvic.cs.chisel.cajun.graph.node.GraphNode;
 import ca.uvic.cs.chisel.cajun.graph.node.GraphNodeCollectionEvent;
 import ca.uvic.cs.chisel.cajun.graph.node.GraphNodeCollectionListener;
@@ -63,8 +64,8 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 			}
 		});
 
-		add(TopPanel.getTopPanel(), BorderLayout.NORTH);
-		add(SidePanel.getSidePanel(), BorderLayout.EAST);
+		add(TopPanel.getTopPanel(this,graphController), BorderLayout.NORTH);
+		//add(SidePanel.getSidePanel(), BorderLayout.EAST);
 
 		Dimension d = new Dimension(800, 600);
 		setPreferredSize(d);

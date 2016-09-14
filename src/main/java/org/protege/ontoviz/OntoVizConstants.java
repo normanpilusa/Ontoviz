@@ -31,7 +31,7 @@ public class OntoVizConstants{
       }
    }
 
-   public static void setUpBtn(JButton btn, ImageIcon icon, String txt){
+   public static void setUpButton(JButton btn, ImageIcon icon, String txt){
       btn.setIcon(icon);
       btn.setText(txt);
    }

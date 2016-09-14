@@ -1,6 +1,7 @@
 package org.protege.ontoviz;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 /**
  *
@@ -76,10 +77,10 @@ import java.awt.event.*;
        horiBtn = new JButton();
        radBtn  = new JButton();
 
-       OntoVizConstants.setUpBtn(gridBtn, OntoVizIcons.GRID, "Grid");
-       OntoVizConstants.setUpBtn(vertBtn, OntoVizIcons.VERT, "Vertical");
-       OntoVizConstants.setUpBtn(horiBtn, OntoVizIcons.HORI, "Horizontal");
-       OntoVizConstants.setUpBtn(radBtn, OntoVizIcons.RAD, "Radial");
+       OntoVizConstants.setUpButton(gridBtn, OntoVizIcons.GRID, "Grid");
+       OntoVizConstants.setUpButton(vertBtn, OntoVizIcons.VERT, "Vertical");
+       OntoVizConstants.setUpButton(horiBtn, OntoVizIcons.HORI, "Horizontal");
+       OntoVizConstants.setUpButton(radBtn, OntoVizIcons.RAD, "Radial");
 
        gridBtn.addActionListener(act);
        vertBtn.addActionListener(act);
