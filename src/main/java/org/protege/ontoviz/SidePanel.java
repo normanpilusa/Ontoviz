@@ -1,18 +1,31 @@
 package org.protege.ontoviz;
 
-import javax.swing.*;
+//import com.sun.corba.se.impl.orbutil.graph.Graph;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
+
+import ca.uvic.cs.chisel.cajun.actions.LayoutAction;
+import ca.uvic.cs.chisel.cajun.constants.LayoutConstants;
+import ca.uvic.cs.chisel.cajun.graph.Graph;
+
+import org.eclipse.zest.layouts.algorithms.DirectedGraphLayoutAlgorithm;
+import org.eclipse.zest.layouts.algorithms.GridLayoutAlgorithm;
+import org.eclipse.zest.layouts.algorithms.HorizontalDirectedGraphLayoutAlgorithm;
+import org.eclipse.zest.layouts.algorithms.HorizontalTreeLayoutAlgorithm;
+import org.eclipse.zest.layouts.algorithms.RadialLayoutAlgorithm;
+import org.eclipse.zest.layouts.algorithms.SpringLayoutAlgorithm;
+import org.eclipse.zest.layouts.algorithms.TreeLayoutAlgorithm;
+
 /**
  *
  * @author musax
  */
  public class SidePanel extends JPanel{
 
-    private static SidePanel instance = new SidePanel();
-
-    public static SidePanel getSidePanel(){
-       return instance; }
+    public static SidePanel getSidePanel(Graph graph){
+       return new SidePanel(graph);
+     }
 
     private void default_view(){
        layoutCtrlPanel.setVisible(false);
@@ -20,7 +33,7 @@ import java.awt.event.*;
        nodeTypeCtrlPanel.setVisible(false);
     }
 
-    private SidePanel(){
+    private SidePanel(Graph graph){
 
        jPanel3 = new JPanel();
        jPanel4 = new JPanel();
@@ -71,21 +84,11 @@ import java.awt.event.*;
           });
 
        //=================================================================
-
-       gridBtn = new JButton();
-       vertBtn = new JButton();
-       horiBtn = new JButton();
-       radBtn  = new JButton();
-
-       OntoVizConstants.setUpButton(gridBtn, OntoVizIcons.GRID, "Grid");
-       OntoVizConstants.setUpButton(vertBtn, OntoVizIcons.VERT, "Vertical");
-       OntoVizConstants.setUpButton(horiBtn, OntoVizIcons.HORI, "Horizontal");
-       OntoVizConstants.setUpButton(radBtn, OntoVizIcons.RAD, "Radial");
-
-       gridBtn.addActionListener(act);
-       vertBtn.addActionListener(act);
-       horiBtn.addActionListener(act);
-       radBtn.addActionListener(act);
+       int style = 1;
+       gridBtn = new JButton(new LayoutAction(" Grid", OntoVizIcons.GRID, new GridLayoutAlgorithm(style), graph));
+       vertBtn = new JButton(new LayoutAction(" Vertical", OntoVizIcons.VERT, new DirectedGraphLayoutAlgorithm(style), graph));
+       horiBtn = new JButton(new LayoutAction(" Horizontal", OntoVizIcons.HORI, new HorizontalDirectedGraphLayoutAlgorithm(style), graph));
+       radBtn  = new JButton(new LayoutAction(" Radial", OntoVizIcons.RAD, new RadialLayoutAlgorithm(style), graph));
 
        checkbox1 = new Checkbox();
        checkbox2 = new Checkbox();
@@ -244,6 +247,5 @@ import java.awt.event.*;
 
     private JPanel jPanel3, jPanel4, jPanel5;
 
-    private GUIActions act = new GUIActions();
 
  }
