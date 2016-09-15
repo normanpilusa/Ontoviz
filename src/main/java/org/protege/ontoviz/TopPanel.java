@@ -2,6 +2,12 @@ package org.protege.ontoviz;
 import javax.swing.*;
 import java.awt.event.*;
 
+import org.protege.editor.owl.ui.view.cls.AbstractOWLClassViewComponent;
+import org.protege.ontoviz.common.GraphController;
+import org.protege.ontoviz.actions.*;
+import ca.uvic.cs.chisel.cajun.graph.FlatGraph;
+import ca.uvic.cs.chisel.cajun.actions.*;
+
 public class TopPanel extends JToolBar{
 
    private TopPanel(AbstractOWLClassViewComponent comp, GraphController controller){

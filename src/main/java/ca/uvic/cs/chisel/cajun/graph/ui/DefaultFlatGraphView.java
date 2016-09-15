@@ -48,7 +48,7 @@ public class DefaultFlatGraphView extends JPanel {
 	private JSplitPane rightPanel;
 	private FilterPanel nodeFilterPanel;
 	private FilterPanel arcFilterPanel;
-	
+
 	private JSplitPane horizontalSplitPane;
 
 	public DefaultFlatGraphView(FlatGraph graph) {
@@ -59,14 +59,14 @@ public class DefaultFlatGraphView extends JPanel {
 	}
 
 	private void initialize() {
-		this.add(getToolBar(), BorderLayout.NORTH);
-		
+		//this.add(getToolBar(), BorderLayout.NORTH);
+
 		this.add(getStatusBar(), BorderLayout.SOUTH);
-		
+
 		horizontalSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		horizontalSplitPane.add(getMainPanel());
 		horizontalSplitPane.add(getRightPanel());
-		
+
 		this.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentResized(ComponentEvent e) {
@@ -74,16 +74,16 @@ public class DefaultFlatGraphView extends JPanel {
 				DefaultFlatGraphView.this.removeComponentListener(this);
 			}
 		});
-		
+
 		this.add(horizontalSplitPane, BorderLayout.CENTER);
-		
+
 		this.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentResized(ComponentEvent e) {
 				if(getRightPanel().getTopComponent() == null && getRightPanel().getBottomComponent() == null) {
 					horizontalSplitPane.setDividerLocation(1.0);
 				}
-				
+
 				super.componentResized(e);
 			}
 		});
@@ -127,7 +127,7 @@ public class DefaultFlatGraphView extends JPanel {
 	/**
 	 * Returns the main panel - this contains the {@link Graph} in the center position of the panel
 	 * which is using a {@link BorderLayout}.
-	 * 
+	 *
 	 * @return JPanel
 	 */
 	public JPanel getMainPanel() {
@@ -182,7 +182,7 @@ public class DefaultFlatGraphView extends JPanel {
 		if(rightPanel.getTopComponent() == null && rightPanel.getBottomComponent() == null) {
 			horizontalSplitPane.setDividerLocation(1.0);
 		}
-		
+
 		if (rightPanel.getTopComponent() == null || rightPanel.getBottomComponent() == null) {
 			rightPanel.setDividerSize(0);
 		} else {
@@ -231,7 +231,7 @@ public class DefaultFlatGraphView extends JPanel {
 			final FilterManager filterManager = graph.getFilterManager();
 			arcFilterPanel = new FilterPanel("Arc Types", icon, graph.getGraphArcStyle()) {
 				private static final long serialVersionUID = -1656466039034202473L;
-				
+
 				public void setTypeVisibility(Object arcType, boolean visible) {
 					filterManager.setArcTypeVisible(arcType, visible);
 				}
@@ -314,7 +314,7 @@ public class DefaultFlatGraphView extends JPanel {
 
 	private class ShowFilterPanelAction extends CajunAction {
 		private static final long serialVersionUID = -3317243155479206347L;
-		
+
 		private FilterPanel filterPanel;
 
 		public ShowFilterPanelAction(FilterPanel filterPanel) {
@@ -342,7 +342,7 @@ public class DefaultFlatGraphView extends JPanel {
 				filterPanel.reload();
 				getRightPanel().add(filterPanel);
 				getRightPanel().invalidate();
-				
+
 				horizontalSplitPane.setDividerLocation(0.7);
 			}
 		}

@@ -26,15 +26,7 @@ public class OntoVizGUI extends javax.swing.JFrame {
    // <editor-fold defaultstate="collapsed" desc="Generated Code">
 
 
-
-   private void setTopPanel(){
-      topPanel = TopPanel.getTopPanel();
-   }
-
    private void initComponents() {
-
-      setTopPanel();
-
 
       jPanel6 = new javax.swing.JPanel();
       jPanel1 = new javax.swing.JPanel();
