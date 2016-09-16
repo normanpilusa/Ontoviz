@@ -65,7 +65,7 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 		});
 
 		add(TopPanel.getTopPanel(this,graphController), BorderLayout.NORTH);
-		add(SidePanel.getSidePanel(graphController.getGraph()), BorderLayout.EAST);
+		//add(SidePanel.getSidePanel(graphController.getGraph()), BorderLayout.EAST);
 
 		Dimension d = new Dimension(800, 600);
 		setPreferredSize(d);

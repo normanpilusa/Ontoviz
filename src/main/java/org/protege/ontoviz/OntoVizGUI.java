@@ -113,14 +113,13 @@ public class OntoVizGUI extends javax.swing.JFrame {
       layoutCtrlPanel.setBackground(new java.awt.Color(153, 204, 255));
 
 
+      OntoVizConstants.setUpButton(jButton1, OntoVizIcons.GRID, "Grid","");
 
-      OntoVizConstants.setUpButton(jButton1, OntoVizIcons.GRID, "Grid");
+      OntoVizConstants.setUpButton(jButton2, OntoVizIcons.VERT, "Vertical","");
 
-      OntoVizConstants.setUpButton(jButton2, OntoVizIcons.VERT, "Vertical");
+      OntoVizConstants.setUpButton(jButton3, OntoVizIcons.RAD, "Radial","");
 
-      OntoVizConstants.setUpButton(jButton3, OntoVizIcons.RAD, "Radial");
-
-      OntoVizConstants.setUpButton(jButton5, OntoVizIcons.HORI, "Horizontal");
+      OntoVizConstants.setUpButton(jButton5, OntoVizIcons.HORI, "Horizontal","");
 
       javax.swing.GroupLayout layoutCtrlPanelLayout = new javax.swing.GroupLayout(layoutCtrlPanel);
       layoutCtrlPanel.setLayout(layoutCtrlPanelLayout);

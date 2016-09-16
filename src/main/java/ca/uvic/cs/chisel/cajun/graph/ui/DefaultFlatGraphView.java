@@ -59,9 +59,6 @@ public class DefaultFlatGraphView extends JPanel {
 	}
 
 	private void initialize() {
-		//this.add(getToolBar(), BorderLayout.NORTH);
-
-		this.add(getStatusBar(), BorderLayout.SOUTH);
 
 		horizontalSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		horizontalSplitPane.add(getMainPanel());
@@ -88,41 +85,8 @@ public class DefaultFlatGraphView extends JPanel {
 			}
 		});
 
-		initializeToolBar();
 	}
 
-	private void initializeToolBar() {
-
-		// Layouts
-		for (LayoutAction action : graph.getLayouts()) {
-			action.setHandler(graph.getAnimationHandler());
-			addToolBarAction(action);
-		}
-
-		getToolBar().addSeparator();
-
-		// zoom
-		addToolBarAction(new ZoomInAction(graph.getCamera()));
-		addToolBarAction(new NoZoomAction(graph.getCamera()));
-		addToolBarAction(new ZoomOutAction(graph.getCamera()));
-
-		getToolBar().addSeparator();
-
-		// node and arc filter actions
-		final JToggleButton nodesToggle = addToolBarToggleAction(new ShowFilterPanelAction(getNodeFilterPanel()));
-		final JToggleButton arcsToggle = addToolBarToggleAction(new ShowFilterPanelAction(getArcFilterPanel()));
-		// listen for panel close events - keep the toggle buttons in sync
-		getNodeFilterPanel().getCloseButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				nodesToggle.setSelected(false);
-			}
-		});
-		getArcFilterPanel().getCloseButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				arcsToggle.setSelected(false);
-			}
-		});
-	}
 
 	/**
 	 * Returns the main panel - this contains the {@link Graph} in the center position of the panel
@@ -256,60 +220,6 @@ public class DefaultFlatGraphView extends JPanel {
 			});
 		}
 		return arcFilterPanel;
-	}
-
-	public JButton addToolBarAction(Action action) {
-		JButton btn = getToolBar().add(action);
-		btn.setToolTipText((String) action.getValue(Action.NAME));
-		return btn;
-	}
-
-	public JToggleButton addToolBarToggleAction(Action action) {
-		JToggleButton btn = new JToggleButton(action);
-		btn.setText(null);
-		btn.setToolTipText((String) action.getValue(Action.NAME));
-		getToolBar().add(btn);
-		return btn;
-	}
-
-	public void removeToolBarAction(Action action) {
-		if (action != null) {
-			Component found = null;
-			for (Component c : getToolBar().getComponents()) {
-				if (c instanceof AbstractButton) {
-					AbstractButton btn = (AbstractButton) c;
-					if (action.equals(btn.getAction())) {
-						found = c;
-						break;
-					}
-				}
-			}
-			if (found != null) {
-				getToolBar().remove(found);
-				getToolBar().revalidate();
-				getToolBar().repaint();
-			}
-		}
-	}
-
-	public void addToolBarSeparator() {
-		addToolBarComponent(null);
-	}
-
-	public void addToolBarComponent(Component component) {
-		if (component == null) {
-			getToolBar().addSeparator();
-		} else {
-			getToolBar().add(component);
-		}
-	}
-
-	public void removeToolBarComponent(Component c) {
-		if (c != null) {
-			getToolBar().remove(c);
-			getToolBar().revalidate();
-			getToolBar().repaint();
-		}
 	}
 
 	private class ShowFilterPanelAction extends CajunAction {

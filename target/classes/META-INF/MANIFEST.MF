@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1473931500354
+Bnd-LastModified: 1473993762395
 Build-Jdk: 1.8.0_101
 Built-By: musax
 Bundle-Activator: org.protege.editor.owl.ProtegeOWL
@@ -26,11 +26,11 @@ Export-Package: ca.uvic.cs.chisel.cajun.actions;version="1.0.2";uses:="c
  api.model";version="1.0.0",org.protege.ontoviz.common.util;uses:="javax
  .swing,org.protege.editor.owl.model,org.protege.editor.owl.ui.renderer,
  org.semanticweb.owlapi.model,org.semanticweb.owlapi.util";version="1.0.
- 0",org.protege.ontoviz;uses:="javax.swing,org.protege.editor.owl.ui.vie
- w.cls,org.protege.ontoviz.common,org.semanticweb.owlapi.model";version=
- "1.0.0",org.protege.ontoviz.ui;uses:="ca.uvic.cs.chisel.cajun.graph,jav
- ax.swing,javax.swing.filechooser,org.protege.editor.owl.model,org.seman
- ticweb.owlapi.model";version="1.0.0"
+ 0",org.protege.ontoviz;uses:="ca.uvic.cs.chisel.cajun.graph,javax.swing
+ ,org.protege.editor.owl.ui.view.cls,org.protege.ontoviz.common,org.sema
+ nticweb.owlapi.model";version="1.0.0",org.protege.ontoviz.ui;uses:="ca.
+ uvic.cs.chisel.cajun.graph,javax.swing,javax.swing.filechooser,org.prot
+ ege.editor.owl.model,org.semanticweb.owlapi.model";version="1.0.0"
 Import-Package: com.ibm.icu.text;resolution:=optional,org.eclipse.swt;re
  solution:=optional,org.eclipse.swt.accessibility;resolution:=optional,o
  rg.eclipse.swt.events;resolution:=optional,org.eclipse.swt.graphics;res

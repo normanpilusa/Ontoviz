@@ -2,7 +2,7 @@ package org.protege.ontoviz;
 
 import javax.swing.*;
 import java.awt.event.*;
-public class GUIActions implements ActionListener {
+public class GUIActions {
 
    public static void labelAction(String command){
       switch(command){
@@ -16,17 +16,4 @@ public class GUIActions implements ActionListener {
       }
    }
 
-   public void actionPerformed(ActionEvent e) {
-      String command = e.getActionCommand();
-
-      switch(command){
-         case "Grid":
-         case "Radial":
-         case "Vertical":
-         case "Horizontal":
-            JOptionPane.showMessageDialog(null, command);
-            break;
-      }
-
-   }
 }

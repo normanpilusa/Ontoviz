@@ -31,9 +31,10 @@ public class OntoVizConstants{
       }
    }
 
-   public static void setUpButton(JButton btn, ImageIcon icon, String txt){
+   public static void setUpButton(JButton btn, ImageIcon icon, String txt, String tip){
       btn.setIcon(icon);
       btn.setText(txt);
+      btn.setToolTipText(tip);
    }
 
    public static void setHeaderPanel(JPanel headerPanel, JToggleButton toggleBtn, JLabel label, int gap){

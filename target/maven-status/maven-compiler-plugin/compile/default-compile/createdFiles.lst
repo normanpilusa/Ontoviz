@@ -53,13 +53,11 @@ ca\uvic\cs\chisel\cajun\graph\ui\DefaultFlatGraphView$9.class
 org\protege\ontoviz\actions\PinTooltipsAction$2.class
 org\protege\ontoviz\common\GraphController$10.class
 org\protege\ontoviz\actions\ConfigTooltipsAction.class
-ca\uvic\cs\chisel\cajun\graph\ui\DefaultFlatGraphView$10.class
 org\protege\ontoviz\SidePanel$3.class
 org\protege\ontoviz\ui\OntoGrafFileFilter.class
 org\protege\ontoviz\actions\SaveGraphAction.class
 org\protege\ontoviz\OntoVizGUI$2.class
 org\protege\ontoviz\common\util\NodeOWLClassTooltipType.class
-ca\uvic\cs\chisel\cajun\graph\ui\DefaultFlatGraphView$11.class
 org\protege\ontoviz\actions\ExportImageAction.class
 org\protege\ontoviz\OntovizImportView$1.class
 ca\uvic\cs\chisel\cajun\graph\FlatGraph.class
