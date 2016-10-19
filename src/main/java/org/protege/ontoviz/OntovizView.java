@@ -30,7 +30,7 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 	// the graph and the class tree
 	private boolean cancelSelectionUpdate;
 
-
+	private TopPanel topPanel;
 
 	/**
 	 * When a node gets selected in the graph, we want to update the global class selection for Protege.
@@ -50,7 +50,6 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 		this.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentResized(ComponentEvent e) {
-				// TODO Auto-generated method stub
 				super.componentResized(e);
 
 			}
@@ -64,7 +63,8 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 			}
 		});
 
-		add(TopPanel.getTopPanel(this,graphController), BorderLayout.NORTH);
+		topPanel = TopPanel.getTopPanel(this,graphController);
+		add(topPanel, BorderLayout.NORTH);
 		//add(SidePanel.getSidePanel(graphController.getGraph()), BorderLayout.EAST);
 
 		Dimension d = new Dimension(800, 600);
@@ -89,6 +89,10 @@ public class OntovizView extends AbstractOWLClassViewComponent  {
 	@Override
 	public void disposeView() {
 		// TODO Auto-generated method stub
+	}
+
+	public TopPanel getTopPanel(){
+		return topPanel;
 	}
 
 }

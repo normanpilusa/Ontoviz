@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1473993762395
+Bnd-LastModified: 1476636451354
 Build-Jdk: 1.8.0_101
 Built-By: musax
 Bundle-Activator: org.protege.editor.owl.ProtegeOWL

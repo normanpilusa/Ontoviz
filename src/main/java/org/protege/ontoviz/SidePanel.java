@@ -19,7 +19,7 @@ import org.eclipse.zest.layouts.algorithms.TreeLayoutAlgorithm;
 
 /**
  *
- * @author musax
+ * @author musa xakaza
  */
  public class SidePanel extends JPanel{
 

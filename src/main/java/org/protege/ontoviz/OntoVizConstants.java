@@ -9,17 +9,26 @@ public class OntoVizConstants{
    public static Font TAHOMA_FONT = new Font("Tahoma", 0, 14);
    public static String LABEL_TXT = "    |";
 
+   /**
+    * set label icon and tooltip text.
+    */
    public static void setUpLabel(JLabel label, ImageIcon icon, String tip){
       label.setIcon(icon);
       label.setToolTipText(tip);
       setUpLabel(label,LABEL_TXT);
    }
 
+   /**
+    * set label font and text.
+    */
    public static void setUpLabel(JLabel label, String txt){
       label.setFont(OntoVizConstants.TAHOMA_FONT);
       label.setText(txt);
    }
 
+   /**
+    * change panel visibility, which is controlled by a toggle button.
+    */
    public static void toggleEvt(ItemEvent evt, JToggleButton tglBtn, JPanel ctrlPanel){
       if (evt.getStateChange() == evt.SELECTED){
          ctrlPanel.setVisible(true);
@@ -31,16 +40,26 @@ public class OntoVizConstants{
       }
    }
 
+   /**
+    * set icon, text and tooltip text for the given button
+    */
    public static void setUpButton(JButton btn, ImageIcon icon, String txt, String tip){
       btn.setIcon(icon);
       btn.setText(txt);
       btn.setToolTipText(tip);
    }
 
+   /**
+    * add label, toggle button to the given panel, where the container gap
+    * is not specified. Used for the side panel.
+    */
    public static void setHeaderPanel(JPanel headerPanel, JToggleButton toggleBtn, JLabel label, int gap){
       setHeaderPanel(headerPanel, toggleBtn, label, gap, GroupLayout.DEFAULT_SIZE);
    }
 
+   /**
+    * add label, toggle button to the given panel. Used for the side panel.
+    */
    public static void setHeaderPanel(JPanel headerPanel, JToggleButton toggleBtn, JLabel label, int gap,int contGap){
 
       GroupLayout headerPanelLayout = new GroupLayout(headerPanel);

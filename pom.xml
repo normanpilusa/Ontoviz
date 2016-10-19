@@ -30,6 +30,30 @@
             <artifactId>protege-editor-owl</artifactId>
             <version>5.0.0-RC1</version>
         </dependency>
+
+        <dependency>
+            <groupId>owlapi</groupId>
+            <artifactId>owlapi</artifactId>
+            <version>3.2.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/owlapi-3.2.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.5</version>
+          <scope>test</scope>
+        </dependency>
+
+        <!-- <dependency>
+          <groupId>sample</groupId>
+          <artifactId>com.sample</artifactId>
+          <version>1.0</version>
+          <scope>system</scope>
+          <systemPath>${project.basedir}/src/main/resources/protege_t.jar</systemPath>
+        </dependency> -->
+
     </dependencies>
 
     <build>

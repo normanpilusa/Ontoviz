@@ -1,3 +1,4 @@
+
 package org.protege.ontoviz;
 
 import ca.uvic.cs.chisel.cajun.actions.LayoutAction;
@@ -27,8 +28,17 @@ import org.protege.ontoviz.actions.OpenGraphAction;
 import org.protege.ontoviz.actions.SaveGraphAction;
 import org.protege.ontoviz.common.GraphController;
 
+/**
+ * @author musa xakaza
+ */
 public class TopPanel extends JToolBar{
 
+  /**
+   * @param comp : view component to add toolbar to.
+   * @param controller : controller to manage link between buttons and actions.
+   *
+   * create the toolbar and add all the buttons which corresponding actions
+   */
    private TopPanel(AbstractOWLClassViewComponent comp, GraphController controller){
       super();
       FlatGraph graph = (FlatGraph) controller.getGraph();
@@ -38,6 +48,7 @@ public class TopPanel extends JToolBar{
 
       JFrame mainWindow = (javax.swing.JFrame)SwingUtilities.windowForComponent(comp);
 
+      // set up features buttons
       zoomInButton = this.add(new ZoomInAction(graph.getCamera()));
       addSeparator();
       zoomOutButton= this.add(new ZoomOutAction(graph.getCamera()));
@@ -54,12 +65,14 @@ public class TopPanel extends JToolBar{
       OntoVizConstants.setUpButton(zoomOutButton, OntoVizIcons.ICON_ZOOM_OUT, "","Zoom Out");
       OntoVizConstants.setUpButton(zoomInButton, OntoVizIcons.ICON_ZOOM_IN, "","Zoom In");
 
+      // set up layout buttons
       int style = 1;
-      gridBtn = new JButton(new LayoutAction(" Grid", OntoVizIcons.GRID, new GridLayoutAlgorithm(style), graph));
-      vertBtn = new JButton(new LayoutAction(" Vertical", OntoVizIcons.VERT, new DirectedGraphLayoutAlgorithm(style), graph));
-      horiBtn = new JButton(new LayoutAction(" Horizontal", OntoVizIcons.HORI, new HorizontalDirectedGraphLayoutAlgorithm(style), graph));
-      radBtn  = new JButton(new LayoutAction(" Radial", OntoVizIcons.RAD, new RadialLayoutAlgorithm(style), graph));
+      gridBtn = new JButton(new LayoutAction("Grid", OntoVizIcons.GRID, new GridLayoutAlgorithm(style), graph));
+      vertBtn = new JButton(new LayoutAction("Vertical", OntoVizIcons.VERT, new DirectedGraphLayoutAlgorithm(style), graph));
+      horiBtn = new JButton(new LayoutAction("Horizontal", OntoVizIcons.HORI, new HorizontalDirectedGraphLayoutAlgorithm(style), graph));
+      radBtn  = new JButton(new LayoutAction("Radial", OntoVizIcons.RAD, new RadialLayoutAlgorithm(style), graph));
 
+      // add buttons to toolbar and set group layout.
       GroupLayout topPanelLayout = new GroupLayout(this);
       setLayout(topPanelLayout);
       topPanelLayout.setAutoCreateGaps(true);
@@ -74,7 +87,6 @@ public class TopPanel extends JToolBar{
               .addComponent(radBtn)
               .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
               .addComponent(horiBtn)
-
               .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
               .addComponent(zoomOutButton)
               .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
@@ -100,6 +112,11 @@ public class TopPanel extends JToolBar{
               )
           .addComponent(zoomInButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           );
+
+   }
+
+   public String toString(){
+     return "Top Panel";
    }
 
    public static TopPanel getTopPanel(AbstractOWLClassViewComponent comp, GraphController controller){
