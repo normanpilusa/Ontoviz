@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1476636451354
+Bnd-LastModified: 1476891207917
 Build-Jdk: 1.8.0_101
 Built-By: musax
 Bundle-Activator: org.protege.editor.owl.ProtegeOWL
@@ -16,21 +16,25 @@ Embed-Dependency: ca.uvic.cs.chisel.cajun
 Embedded-Artifacts: ca.uvic.cs.chisel.cajun-1.0.2.jar;g="edu.stanford.pr
  otege";a="ca.uvic.cs.chisel.cajun";v="1.0.2"
 Export-Package: ca.uvic.cs.chisel.cajun.actions;version="1.0.2";uses:="c
- a.uvic.cs.chisel.cajun.graph,javax.swing",ca.uvic.cs.chisel.cajun.graph
- ;version="1.0.2";uses:="ca.uvic.cs.chisel.cajun.actions,javax.swing",ca
- .uvic.cs.chisel.cajun.graph.ui;version="1.0.2";uses:="ca.uvic.cs.chisel
- .cajun.graph,javax.swing",org.protege.ontoviz.actions;uses:="ca.uvic.cs
- .chisel.cajun.actions,org.protege.ontoviz.common";version="1.0.0",org.p
- rotege.ontoviz.common;uses:="ca.uvic.cs.chisel.cajun.graph,javax.swing,
- org.protege.editor.owl,org.protege.editor.owl.model,org.semanticweb.owl
- api.model";version="1.0.0",org.protege.ontoviz.common.util;uses:="javax
- .swing,org.protege.editor.owl.model,org.protege.editor.owl.ui.renderer,
- org.semanticweb.owlapi.model,org.semanticweb.owlapi.util";version="1.0.
- 0",org.protege.ontoviz;uses:="ca.uvic.cs.chisel.cajun.graph,javax.swing
- ,org.protege.editor.owl.ui.view.cls,org.protege.ontoviz.common,org.sema
- nticweb.owlapi.model";version="1.0.0",org.protege.ontoviz.ui;uses:="ca.
- uvic.cs.chisel.cajun.graph,javax.swing,javax.swing.filechooser,org.prot
- ege.editor.owl.model,org.semanticweb.owlapi.model";version="1.0.0"
+ a.uvic.cs.chisel.cajun.graph,ca.uvic.cs.chisel.cajun.graph.node,javax.s
+ wing",ca.uvic.cs.chisel.cajun.graph;version="1.0.2";uses:="ca.uvic.cs.c
+ hisel.cajun.actions,ca.uvic.cs.chisel.cajun.graph.node,javax.swing",ca.
+ uvic.cs.chisel.cajun.graph.node;version="1.0.2";uses:="ca.uvic.cs.chise
+ l.cajun.graph,javax.swing,javax.swing.event",ca.uvic.cs.chisel.cajun.gr
+ aph.ui;version="1.0.2";uses:="ca.uvic.cs.chisel.cajun.graph,javax.swing
+ ",org.protege.ontoviz.actions;version="1.0.0";uses:="ca.uvic.cs.chisel.
+ cajun.actions,org.protege.ontoviz.common",org.protege.ontoviz.common;ve
+ rsion="1.0.0";uses:="ca.uvic.cs.chisel.cajun.graph,ca.uvic.cs.chisel.ca
+ jun.graph.node,javax.swing,org.protege.editor.owl,org.protege.editor.ow
+ l.model,org.semanticweb.owlapi.model",org.protege.ontoviz.common.util;v
+ ersion="1.0.0";uses:="javax.swing,org.protege.editor.owl.model,org.prot
+ ege.editor.owl.ui.renderer,org.semanticweb.owlapi.model,org.semanticweb
+ .owlapi.util",org.protege.ontoviz;version="1.0.0";uses:="ca.uvic.cs.chi
+ sel.cajun.graph,javax.swing,org.protege.editor.owl.ui.view.cls,org.prot
+ ege.ontoviz.common,org.semanticweb.owlapi.model",org.protege.ontoviz.ui
+ ;version="1.0.0";uses:="ca.uvic.cs.chisel.cajun.graph,javax.swing,javax
+ .swing.filechooser,org.protege.editor.owl.model,org.semanticweb.owlapi.
+ model"
 Import-Package: com.ibm.icu.text;resolution:=optional,org.eclipse.swt;re
  solution:=optional,org.eclipse.swt.accessibility;resolution:=optional,o
  rg.eclipse.swt.events;resolution:=optional,org.eclipse.swt.graphics;res

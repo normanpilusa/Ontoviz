@@ -19,7 +19,6 @@ import ca.uvic.cs.chisel.cajun.graph.arc.GraphArc;
 import ca.uvic.cs.chisel.cajun.graph.node.DefaultGraphNode;
 import ca.uvic.cs.chisel.cajun.graph.node.GraphNode;
 import ca.uvic.cs.chisel.cajun.graph.util.ActivityManager;
-import ca.uvic.cs.chisel.cajun.graph.util.AnimationHandler;
 import edu.umd.cs.piccolo.PCanvas;
 import edu.umd.cs.piccolo.PNode;
 import edu.umd.cs.piccolo.activities.PActivity;
@@ -31,7 +30,7 @@ public class LayoutAction extends CajunAction {
 	
 	private static final int MAX_NODES_TO_ANIMATE = 200;
 	private static final double DELTA = 0.01;
-	private AnimationHandler handler;
+
 	private LayoutAlgorithm layout;
 	private Graph graph;
 	private boolean animate;
@@ -54,7 +53,7 @@ public class LayoutAction extends CajunAction {
 		this.animate = animate;
 		this.resizeNodes = false;
 		this.layoutRelTypes = new ArrayList<Object>();
-		this.handler = null;
+		
 		this.manager = new ActivityManager(graph.getCanvas(), graph.getCanvas().getRoot().getActivityScheduler());
 	}
 	
@@ -78,13 +77,6 @@ public class LayoutAction extends CajunAction {
 		// save this action as the last executed action
 		((AbstractGraph) graph).setLastLayout(this);
 		runLayout();
-		
-		//To auto center after layout is selected
-		if(handler != null)
-			handler.focusOnExtents(true);
-	}
-	public void setHandler(AnimationHandler handler){
-		this.handler = handler;
 	}
 	
 	public void runLayout() {
@@ -150,7 +142,11 @@ public class LayoutAction extends CajunAction {
 			}
 			
 			if (animate) {
+				//ActivityManager manager = new ActivityManager(canvas, scheduler, activities);
 				manager.setActivities(activities);
+				// wait until all nodes have finished moving
+				// @tag question : why did Chris put this in here?  it blocks the UI thread
+				//manager.waitForActivitiesToFinish();
 			} else {
 				canvas.repaint();
 			}

@@ -460,6 +460,9 @@ public abstract class AbstractGraph extends PCanvas implements Graph {
 		int style = LayoutStyles.NO_LAYOUT_NODE_RESIZING;
 		addLayout(new LayoutAction(LayoutConstants.LAYOUT_GRID_BY_ALPHA, ResourceHandler.getIcon("icon_grid_layout.gif"), new GridLayoutAlgorithm(style), this));
 		addLayout(new LayoutAction(LayoutConstants.LAYOUT_RADIAL, ResourceHandler.getIcon("icon_radial_layout.gif"), new RadialLayoutAlgorithm(style), this));
+		addLayout(new LayoutAction(LayoutConstants.LAYOUT_SPRING, ResourceHandler.getIcon("icon_spring_layout.gif"), new SpringLayoutAlgorithm(style), this));
+		addLayout(new LayoutAction(LayoutConstants.LAYOUT_TREE_VERTICAL, ResourceHandler.getIcon("icon_tree_layout.gif"), new TreeLayoutAlgorithm(style), this));
+		addLayout(new LayoutAction(LayoutConstants.LAYOUT_TREE_HORIZONTAL, ResourceHandler.getIcon("icon_tree_layout_horizontal.gif"), new HorizontalTreeLayoutAlgorithm(style), this));
 		addLayout(new LayoutAction(LayoutConstants.LAYOUT_DIRECTED_VERTICAL, ResourceHandler.getIcon("icon_tree_layout.gif"), new DirectedGraphLayoutAlgorithm(style), this));
 		addLayout(new LayoutAction(LayoutConstants.LAYOUT_DIRECTED_HORIZONTAL, ResourceHandler.getIcon("icon_tree_layout_horizontal.gif"), new HorizontalDirectedGraphLayoutAlgorithm(style), this));
 		
